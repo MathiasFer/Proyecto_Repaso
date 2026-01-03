@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: erp-light
+
+  profiles:
+    active: dev
+
+server:
+  port: 8080
+
