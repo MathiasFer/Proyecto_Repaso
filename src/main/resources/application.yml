@@ -5,6 +5,13 @@ spring:
   profiles:
     active: dev
 
-server:
-  port: 8080
+  datasource:
+    url: jdbc:postgresql://localhost:5432/erp_dummy
+    username: dummy
+    password: dummy
+    driver-class-name: org.postgresql.Driver
 
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
