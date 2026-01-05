@@ -7,8 +7,10 @@ import com.empresa.erp.auth.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+@Profile("dev")
 @Configuration
 public class DataInitializer {
 
@@ -45,6 +47,17 @@ public class DataInitializer {
                 admin.getRoles().add(adminRole);
 
                 userRepository.save(admin);
+            }
+
+            if (userRepository.findByUsername("user").isEmpty()) {
+
+                User user = new User();
+                user.setUsername("user");
+                user.setPassword(passwordEncoder.encode("user123"));
+                user.setEnabled(true);
+                user.getRoles().add(userRole);
+
+                userRepository.save(user);
             }
         };
     }

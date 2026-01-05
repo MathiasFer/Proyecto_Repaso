@@ -1,4 +1,8 @@
 spring:
+  spring:
+    profiles:
+      active: dev
+
   datasource:
     url: jdbc:postgresql://localhost:5432/erp_db
     username: erp_user
